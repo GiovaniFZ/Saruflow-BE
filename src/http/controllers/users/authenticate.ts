@@ -10,7 +10,6 @@ export async function authenticate(req: Request, res: Response) {
     password: z.string().min(6),
   });
 
-  console.log(req.body);
   const { email, password } = authenticateBodySchema.parse(req.body);
 
   try {
