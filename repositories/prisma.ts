@@ -1,5 +1,6 @@
-import { Prisma, User } from '../src/generated/prisma';
+import { Graphic, Prisma, User } from '../src/generated/prisma';
 import { prisma } from '../src/lib/prisma';
+import { GraphicsRepository } from './graphics-repository';
 import { UsersRepository } from './users-repository';
 
 export class PrismaUsersRepository implements UsersRepository {
@@ -19,5 +20,11 @@ export class PrismaUsersRepository implements UsersRepository {
   async findById(id: string) {
     const user = await prisma.user.findUnique({ where: { id } });
     return user;
+  }
+}
+
+export class PrismaGraphicsRepository implements GraphicsRepository {
+  async findGraphicByUserId(userId: string): Promise<Graphic[]> {
+    return await prisma.graphic.findMany({ where: { userId } });
   }
 }
