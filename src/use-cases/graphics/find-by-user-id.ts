@@ -1,5 +1,5 @@
 import { GraphicsRepository } from '../../../repositories/graphics-repository';
-import { Graphic } from '../../generated/prisma';
+import { GraphicResponse } from '../../../interfaces/interfaces';
 import { ResourceNotFoundError } from '../errors/resource-not-found';
 
 interface FindByUserIdRequest {
@@ -7,7 +7,7 @@ interface FindByUserIdRequest {
 }
 
 interface FindByUserIdResponse {
-  graphic: Graphic[];
+  graphic: GraphicResponse[];
 }
 
 export class FindByUserIdUseCase {

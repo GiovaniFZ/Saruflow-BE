@@ -1,5 +1,4 @@
-import { Graphic } from '../src/generated/prisma';
-
+import { GraphicResponse } from '../interfaces/interfaces';
 export interface GraphicsRepository {
-  findGraphicByUserId(userId: string): Promise<Graphic[]>;
+  findGraphicByUserId(userId: string): Promise<GraphicResponse[]>;
 }
